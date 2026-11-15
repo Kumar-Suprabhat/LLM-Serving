@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RequestRecord",
+  "description": "One row per request, written to results/<run_id>/requests.parquet. This is the project's central data contract: every percentile, goodput figure, cost number and chart is a query over these rows, so they regenerate with no GPU.",
+  "type": "object",
+  "required": [
+    "run_id", "arm_id", "request_index", "sent_at_epoch", "status",
+    "input_tokens", "output_tokens", "ttft_ms", "e2e_ms"
+  ],
+  "properties": {
+    "run_id":        { "type": "string", "description": "groups one matrix execution" },
+    "arm_id":        { "type": "string", "description": "e.g. qwen3-8b-fp8/vllm-default/conc32" },
+    "repeat":        { "type": "integer", "description": "repeat index; >=3 repeats required" },
+    "request_index": { "type": "integer" },
+    "is_warmup":     { "type": "boolean", "description": "warmup rows are stored but excluded from stats" },
+
+    "sent_at_epoch":        { "type": "number" },
+    "first_token_at_epoch": { "type": ["number", "null"] },
+    "finished_at_epoch":    { "type": ["number", "null"] },
+
+    "ttft_ms":  { "type": ["number", "null"], "description": "first token minus send" },
+    "e2e_ms":   { "type": ["number", "null"] },
+    "tpot_ms":  { "type": ["number", "null"], "description": "(e2e - ttft) / (output_tokens - 1)" },
+    "itl_ms": {
+      "type": "array",
+      "items": { "type": "number" },
+      "description": "FULL per-token gap list, never a mean. Decode stalls caused by preemption are visible only in this distribution; storing a mean destroys the most diagnostic signal in the dataset."
+    },
+    "client_queue_ms": { "type": ["number", "null"], "description": "client-side wait, kept separate from server queue time" },
+
+    "input_tokens":  { "type": "integer" },
+    "output_tokens": { "type": "integer" },
+
+    "status":       { "type": "string", "enum": ["ok", "error", "timeout", "aborted"] },
+    "error_type":   { "type": ["string", "null"] },
+    "finish_reason":{ "type": ["string", "null"] },
+
+    "meets_slo": { "type": ["boolean", "null"], "description": "per configured SLO; drives goodput, which unlike throughput has a knee" },
+
+    "dataset":   { "type": ["string", "null"] },
+    "item_id":   { "type": ["string", "null"], "description": "dataset row id; REQUIRED to pair arms item-by-item" },
+    "correct":   { "type": ["boolean", "null"], "description": "per-item grade. Paired statistics (McNemar, flip rate, paired bootstrap) are impossible from an aggregate score, so this is stored per request and never only summarised." },
+    "mean_logprob": { "type": ["number", "null"], "description": "garbage-output detector in the smoke gate, and input to the KL/JS divergence arm" },
+
+    "prefix_group": { "type": ["string", "null"], "description": "shared-prefix identity, for prefix-cache hit-rate analysis" },
+    "turn_index":   { "type": ["integer", "null"], "description": "multi-turn replay position; hit rate decays after ~turn 3" }
+  }
+}

@@ -1,0 +1,43 @@
+# --- Secrets: never commit. See SECURITY.md ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Project artefacts ---
+mlruns/
+results/
+# measurement artefacts: large, host-specific, embed host paths
+runs/
+.runs/
+.ABORT
+nvdrv/                 # extracted NVIDIA driver libs: large, host-specific, never commit
+hf_cache/
+*.safetensors
+*.parquet.tmp
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+.tmp.driveupload/
+.tmp.drivedownload/

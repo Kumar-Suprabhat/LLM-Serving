@@ -1,0 +1,17 @@
+{
+  "_comment": "Exact body the harness POSTs to http://127.0.0.1:18000/v1/completions. Greedy settings are mandatory: temperature 0 + fixed seed is what makes the paired accuracy statistics valid. stream:true is required to measure TTFT and the inter-token-latency distribution at all.",
+  "model": "primary",
+  "prompt": "The capital of France is",
+  "max_tokens": 128,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "seed": 42,
+  "stream": true,
+  "stream_options": { "include_usage": true },
+  "logprobs": 5,
+  "_notes": {
+    "model": "always the --served-model-name, never the checkpoint id, so the harness need not know which precision arm is loaded",
+    "logprobs": "needed for the KL/Jensen-Shannon divergence arm; drop it for pure throughput runs since it adds payload",
+    "stream_options.include_usage": "without this the final chunk carries no token counts and per-request throughput cannot be computed"
+  }
+}

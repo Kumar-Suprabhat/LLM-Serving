@@ -1,0 +1,29 @@
+{
+  "id": "cmpl-8c557aa483cea48d",
+  "object": "text_completion",
+  "created": 1792005967,
+  "model": "primary",
+  "choices": [
+    {
+      "index": 0,
+      "text": " Also, explain why it's better than a simple greedy approach in the case of a large number of possible states and how it can be implemented in a neural network.\nAnswer:\n\nKV caching speeds up autoregressive decoding by storing the key-value pairs of the previous state in memory, which allows the decoder to reuse these values",
+      "logprobs": null,
+      "finish_reason": "length",
+      "stop_reason": null,
+      "token_ids": null,
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "routed_experts": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.25.0-f7a45453",
+  "usage": {
+    "prompt_tokens": 16,
+    "total_tokens": 80,
+    "completion_tokens": 64,
+    "prompt_tokens_details": null
+  },
+  "kv_transfer_params": null,
+  "metrics": null
+}

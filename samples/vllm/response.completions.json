@@ -1,0 +1,21 @@
+{
+  "_comment": "ILLUSTRATIVE SHAPE, not captured output. Run samples/capture_sample.py against a live engine to replace this with a real pair. Non-streaming form shown for readability; streaming yields a sequence of 'data: {...}' SSE chunks with the same choice shape plus a final usage-only chunk.",
+  "id": "cmpl-0000000000000000",
+  "object": "text_completion",
+  "created": 1760000000,
+  "model": "primary",
+  "choices": [
+    {
+      "index": 0,
+      "text": " Paris.",
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5,
+    "completion_tokens": 3,
+    "total_tokens": 8
+  }
+}

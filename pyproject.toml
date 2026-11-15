@@ -1,0 +1,106 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llmopt"
+version = "0.1.0"
+description = "A measurement instrument for LLM inference optimization on a shared production GPU."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Kumar Suprabhat" }]
+keywords = ["llm", "inference", "vllm", "quantization", "benchmarking"]
+
+dependencies = [
+    "httpx>=0.28",
+    "pyarrow>=18.0",
+]
+
+[project.optional-dependencies]
+analysis = ["matplotlib>=3.9", "pandas>=2.2"]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=6.0",
+    "mypy>=1.13",
+    "ruff>=0.8",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llmopt"]
+
+# ----------------------------------------------------------------------------- ruff
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",      # pycodestyle
+    "F",           # pyflakes
+    "I",           # isort
+    "N",           # pep8-naming
+    "UP",          # pyupgrade
+    "B",           # flake8-bugbear
+    "A",           # flake8-builtins
+    "C4",          # comprehensions
+    "DTZ",         # naive datetimes
+    "ISC",         # implicit str concat
+    "PIE",
+    "PT",          # pytest style
+    "RET",
+    "SIM",
+    "ARG",         # unused arguments
+    "PTH",         # use pathlib
+    "PL",          # pylint
+    "TRY",         # tryceratops - exception anti-patterns
+    "BLE",         # blind-except
+    "RUF",
+    "D",           # pydocstyle
+    "ANN",         # type annotations
+]
+ignore = [
+    "D203",    # conflicts with D211
+    "D213",    # conflicts with D212
+    "ANN401",  # Any is occasionally correct (HF config dicts)
+    "TRY003",  # long messages outside exception class: our errors are intentionally descriptive
+    "PLR0913", # many args: dependency-injected constructors legitimately have several
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D", "ANN", "PLR2004", "S101"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+# ----------------------------------------------------------------------------- mypy
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+warn_return_any = true
+disallow_any_generics = true
+no_implicit_reexport = true
+[[tool.mypy.overrides]]
+module = ["matplotlib.*", "pandas.*"]
+ignore_missing_imports = true
+
+# ----------------------------------------------------------------------------- pytest
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+markers = [
+    "contract: interface-conformance tests (no hardware)",
+    "integration: end-to-end pipeline tests against mocks (no hardware)",
+    "gpu: requires a real GPU; deselected in CI via -m 'not gpu'",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["src/llmopt"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "raise NotImplementedError"]

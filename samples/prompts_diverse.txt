@@ -1,0 +1,103 @@
+Explain why KV caching speeds up autoregressive decoding.
+What is the capital of France?
+Write a Python function that reverses a linked list.
+Summarise the causes of the 2008 financial crisis.
+Describe how a transformer's attention mechanism works, in two paragraphs.
+What is the difference between TCP and UDP?
+Give me a recipe for Hungarian goulash.
+Who wrote the novel One Hundred Years of Solitude?
+Explain the Monty Hall problem.
+Translate "the quick brown fox jumps over the lazy dog" into Spanish.
+What is a monad in functional programming?
+How does photosynthesis work?
+Write a haiku about rain.
+What is the largest moon of Saturn?
+List five uses of regular expressions.
+Why is the sky blue?
+What are the main differences between SQL and NoSQL databases?
+Give three examples of logical fallacies and explain each briefly.
+Who was the first woman to win a Nobel Prize?
+Describe the plot of the film Casablanca in a paragraph.
+What is Big O notation and why do engineers use it?
+Explain the central limit theorem in simple terms.
+What is the chemical symbol for tungsten?
+Write a short Haskell function that computes the Fibonacci sequence.
+What causes thunder?
+Who painted The Persistence of Memory?
+What is the difference between a stack and a queue?
+Give me a one-sentence summary of general relativity.
+What is the capital of Mongolia?
+Explain what a hash collision is.
+Write a limerick about a cat that likes jazz.
+What are the three laws of thermodynamics?
+Who directed the film Spirited Away?
+What is a race condition in concurrent programming?
+Describe the water cycle in two sentences.
+What is the half-life of carbon-14?
+Give me a Python snippet that reads a CSV file and prints the first five rows.
+What is the capital of Argentina?
+Explain the Pigeonhole Principle with a short example.
+Who composed the opera The Magic Flute?
+What is dependency injection, and why is it useful?
+Describe how a steam engine works.
+What is the smallest country by land area?
+Write a short poem about autumn leaves.
+What are the main differences between HTTP/1.1 and HTTP/2?
+Who was Ada Lovelace?
+What is the difference between a mutex and a semaphore?
+Give me three book recommendations in the genre of magical realism.
+What is the Doppler effect?
+Explain what a merge sort does, step by step, briefly.
+What is the capital of Kazakhstan?
+Describe the Milgram experiment in two sentences.
+Who wrote the play A Streetcar Named Desire?
+What is a REST API?
+Give me a short Bash command that counts the number of lines in all .py files recursively.
+What is the Fermi paradox?
+Describe the taste of umami in a sentence.
+Who was the first person to walk on the moon?
+Write a short story (three sentences) about a robot who learns to love.
+What is tail recursion?
+What is the chemical formula for table salt?
+Explain gradient descent in two short paragraphs.
+Who was Marie Curie?
+What is the largest desert on Earth?
+Give me a Rust snippet that reads a file into a String.
+What is the difference between synchronous and asynchronous programming?
+Who wrote Pride and Prejudice?
+What is a vector space?
+Describe the Battle of Hastings in two sentences.
+What is the capital of Portugal?
+Explain the difference between inductive and deductive reasoning.
+Write a short limerick about a leaky faucet.
+What is a quine in programming?
+Who painted the ceiling of the Sistine Chapel?
+What is the greenhouse effect?
+Describe how a 4-stroke internal combustion engine works, briefly.
+What is the capital of Iceland?
+Give me a one-paragraph summary of the French Revolution.
+What is a lambda function?
+Explain the Turing test in two sentences.
+Who wrote The Odyssey?
+What are prime numbers and why are they useful in cryptography?
+Describe how a binary search works.
+What is the capital of New Zealand?
+Write a short poem in the style of Emily Dickinson.
+What is the difference between a compiler and an interpreter?
+Who was Alan Turing?
+Give me a one-sentence summary of the plot of Hamlet.
+What is the Nyquist frequency?
+Explain CAP theorem in distributed systems in two sentences.
+Who was the Roman emperor Hadrian?
+Write a short Python function that checks if a string is a palindrome.
+What is the capital of Vietnam?
+Describe the circulatory system in two sentences.
+What is dynamic programming?
+Who wrote the Harry Potter series?
+Explain the concept of entropy in information theory, briefly.
+What is the capital of Egypt?
+Give me three uses of a Kalman filter.
+What is the difference between a Union and a Struct in C?
+Who was Leonardo da Vinci?
+Write a short poem about the ocean.
+What is the capital of Thailand?

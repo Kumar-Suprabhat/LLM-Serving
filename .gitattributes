@@ -1,0 +1,8 @@
+# Shell scripts and Python run on the Linux GPU host: CRLF breaks the shebang with
+# "/usr/bin/env: 'bash\r': No such file or directory". Force LF regardless of platform.
+*.sh    text eol=lf
+*.py    text eol=lf
+*.toml  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+Makefile text eol=lf
